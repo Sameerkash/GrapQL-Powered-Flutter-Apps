@@ -1,0 +1,23 @@
+mutation SendMessage($roomId: Int!, $content: String!, $authorId: Int!) {
+  createMessage(roomId: $roomId, content: $content, authorId: $authorId) {
+    id
+    content
+    timeStamp
+    from {
+      id
+      name
+    }
+  }
+}
+
+subscription PollMessages {
+  messageCreated {
+    id
+    content
+    timeStamp
+    from {
+      id
+      name
+    }
+  }
+}

@@ -1,0 +1,21 @@
+query RoomMessages($roomId: Int!) {
+  messages(roomId: $roomId) {
+    id
+    content
+    timeStamp
+    from {
+      id
+      name
+    }
+  }
+}
+
+query GetRooms {
+  rooms {
+    id
+    messages
+    name
+    roomType
+    description
+  }
+}
