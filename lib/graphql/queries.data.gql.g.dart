@@ -13,9 +13,10 @@ Serializer<GRoomMessagesData_messages> _$gRoomMessagesDataMessagesSerializer =
 Serializer<GRoomMessagesData_messages_from>
     _$gRoomMessagesDataMessagesFromSerializer =
     new _$GRoomMessagesData_messages_fromSerializer();
-Serializer<GRooomsData> _$gRooomsDataSerializer = new _$GRooomsDataSerializer();
-Serializer<GRooomsData_rooms> _$gRooomsDataRoomsSerializer =
-    new _$GRooomsData_roomsSerializer();
+Serializer<GGetRoomsData> _$gGetRoomsDataSerializer =
+    new _$GGetRoomsDataSerializer();
+Serializer<GGetRoomsData_rooms> _$gGetRoomsDataRoomsSerializer =
+    new _$GGetRoomsData_roomsSerializer();
 
 class _$GRoomMessagesDataSerializer
     implements StructuredSerializer<GRoomMessagesData> {
@@ -215,14 +216,14 @@ class _$GRoomMessagesData_messages_fromSerializer
   }
 }
 
-class _$GRooomsDataSerializer implements StructuredSerializer<GRooomsData> {
+class _$GGetRoomsDataSerializer implements StructuredSerializer<GGetRoomsData> {
   @override
-  final Iterable<Type> types = const [GRooomsData, _$GRooomsData];
+  final Iterable<Type> types = const [GGetRoomsData, _$GGetRoomsData];
   @override
-  final String wireName = 'GRooomsData';
+  final String wireName = 'GGetRoomsData';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, GRooomsData object,
+  Iterable<Object?> serialize(Serializers serializers, GGetRoomsData object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       '__typename',
@@ -236,15 +237,16 @@ class _$GRooomsDataSerializer implements StructuredSerializer<GRooomsData> {
         ..add('rooms')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(
-                BuiltList, const [const FullType(GRooomsData_rooms)])));
+                BuiltList, const [const FullType(GGetRoomsData_rooms)])));
     }
     return result;
   }
 
   @override
-  GRooomsData deserialize(Serializers serializers, Iterable<Object?> serialized,
+  GGetRoomsData deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new GRooomsDataBuilder();
+    final result = new GGetRoomsDataBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -259,7 +261,7 @@ class _$GRooomsDataSerializer implements StructuredSerializer<GRooomsData> {
         case 'rooms':
           result.rooms.replace(serializers.deserialize(value,
                   specifiedType: const FullType(
-                      BuiltList, const [const FullType(GRooomsData_rooms)]))!
+                      BuiltList, const [const FullType(GGetRoomsData_rooms)]))!
               as BuiltList<Object?>);
           break;
       }
@@ -269,15 +271,19 @@ class _$GRooomsDataSerializer implements StructuredSerializer<GRooomsData> {
   }
 }
 
-class _$GRooomsData_roomsSerializer
-    implements StructuredSerializer<GRooomsData_rooms> {
+class _$GGetRoomsData_roomsSerializer
+    implements StructuredSerializer<GGetRoomsData_rooms> {
   @override
-  final Iterable<Type> types = const [GRooomsData_rooms, _$GRooomsData_rooms];
+  final Iterable<Type> types = const [
+    GGetRoomsData_rooms,
+    _$GGetRoomsData_rooms
+  ];
   @override
-  final String wireName = 'GRooomsData_rooms';
+  final String wireName = 'GGetRoomsData_rooms';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, GRooomsData_rooms object,
+  Iterable<Object?> serialize(
+      Serializers serializers, GGetRoomsData_rooms object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       '__typename',
@@ -285,11 +291,11 @@ class _$GRooomsData_roomsSerializer
           specifiedType: const FullType(String)),
       'id',
       serializers.serialize(object.id, specifiedType: const FullType(String)),
+      'name',
+      serializers.serialize(object.name, specifiedType: const FullType(String)),
       'roomType',
       serializers.serialize(object.roomType,
           specifiedType: const FullType(_i2.GRoomType)),
-      'name',
-      serializers.serialize(object.name, specifiedType: const FullType(String)),
     ];
     Object? value;
     value = object.messages;
@@ -318,10 +324,10 @@ class _$GRooomsData_roomsSerializer
   }
 
   @override
-  GRooomsData_rooms deserialize(
+  GGetRoomsData_rooms deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new GRooomsData_roomsBuilder();
+    final result = new GGetRoomsData_roomsBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -343,13 +349,13 @@ class _$GRooomsData_roomsSerializer
                       const FullType(BuiltList, const [const FullType(int)]))!
               as BuiltList<Object?>);
           break;
-        case 'roomType':
-          result.roomType = serializers.deserialize(value,
-              specifiedType: const FullType(_i2.GRoomType)) as _i2.GRoomType;
-          break;
         case 'name':
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
+          break;
+        case 'roomType':
+          result.roomType = serializers.deserialize(value,
+              specifiedType: const FullType(_i2.GRoomType)) as _i2.GRoomType;
           break;
         case 'description':
           result.description = serializers.deserialize(value,
@@ -749,31 +755,31 @@ class GRoomMessagesData_messages_fromBuilder
   }
 }
 
-class _$GRooomsData extends GRooomsData {
+class _$GGetRoomsData extends GGetRoomsData {
   @override
   final String G__typename;
   @override
-  final BuiltList<GRooomsData_rooms>? rooms;
+  final BuiltList<GGetRoomsData_rooms>? rooms;
 
-  factory _$GRooomsData([void Function(GRooomsDataBuilder)? updates]) =>
-      (new GRooomsDataBuilder()..update(updates)).build();
+  factory _$GGetRoomsData([void Function(GGetRoomsDataBuilder)? updates]) =>
+      (new GGetRoomsDataBuilder()..update(updates)).build();
 
-  _$GRooomsData._({required this.G__typename, this.rooms}) : super._() {
+  _$GGetRoomsData._({required this.G__typename, this.rooms}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        G__typename, 'GRooomsData', 'G__typename');
+        G__typename, 'GGetRoomsData', 'G__typename');
   }
 
   @override
-  GRooomsData rebuild(void Function(GRooomsDataBuilder) updates) =>
+  GGetRoomsData rebuild(void Function(GGetRoomsDataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GRooomsDataBuilder toBuilder() => new GRooomsDataBuilder()..replace(this);
+  GGetRoomsDataBuilder toBuilder() => new GGetRoomsDataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GRooomsData &&
+    return other is GGetRoomsData &&
         G__typename == other.G__typename &&
         rooms == other.rooms;
   }
@@ -785,30 +791,31 @@ class _$GRooomsData extends GRooomsData {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('GRooomsData')
+    return (newBuiltValueToStringHelper('GGetRoomsData')
           ..add('G__typename', G__typename)
           ..add('rooms', rooms))
         .toString();
   }
 }
 
-class GRooomsDataBuilder implements Builder<GRooomsData, GRooomsDataBuilder> {
-  _$GRooomsData? _$v;
+class GGetRoomsDataBuilder
+    implements Builder<GGetRoomsData, GGetRoomsDataBuilder> {
+  _$GGetRoomsData? _$v;
 
   String? _G__typename;
   String? get G__typename => _$this._G__typename;
   set G__typename(String? G__typename) => _$this._G__typename = G__typename;
 
-  ListBuilder<GRooomsData_rooms>? _rooms;
-  ListBuilder<GRooomsData_rooms> get rooms =>
-      _$this._rooms ??= new ListBuilder<GRooomsData_rooms>();
-  set rooms(ListBuilder<GRooomsData_rooms>? rooms) => _$this._rooms = rooms;
+  ListBuilder<GGetRoomsData_rooms>? _rooms;
+  ListBuilder<GGetRoomsData_rooms> get rooms =>
+      _$this._rooms ??= new ListBuilder<GGetRoomsData_rooms>();
+  set rooms(ListBuilder<GGetRoomsData_rooms>? rooms) => _$this._rooms = rooms;
 
-  GRooomsDataBuilder() {
-    GRooomsData._initializeBuilder(this);
+  GGetRoomsDataBuilder() {
+    GGetRoomsData._initializeBuilder(this);
   }
 
-  GRooomsDataBuilder get _$this {
+  GGetRoomsDataBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _G__typename = $v.G__typename;
@@ -819,24 +826,24 @@ class GRooomsDataBuilder implements Builder<GRooomsData, GRooomsDataBuilder> {
   }
 
   @override
-  void replace(GRooomsData other) {
+  void replace(GGetRoomsData other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$GRooomsData;
+    _$v = other as _$GGetRoomsData;
   }
 
   @override
-  void update(void Function(GRooomsDataBuilder)? updates) {
+  void update(void Function(GGetRoomsDataBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$GRooomsData build() {
-    _$GRooomsData _$result;
+  _$GGetRoomsData build() {
+    _$GGetRoomsData _$result;
     try {
       _$result = _$v ??
-          new _$GRooomsData._(
+          new _$GGetRoomsData._(
               G__typename: BuiltValueNullFieldError.checkNotNull(
-                  G__typename, 'GRooomsData', 'G__typename'),
+                  G__typename, 'GGetRoomsData', 'G__typename'),
               rooms: _rooms?.build());
     } catch (_) {
       late String _$failedField;
@@ -845,7 +852,7 @@ class GRooomsDataBuilder implements Builder<GRooomsData, GRooomsDataBuilder> {
         _rooms?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'GRooomsData', _$failedField, e.toString());
+            'GGetRoomsData', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -854,7 +861,7 @@ class GRooomsDataBuilder implements Builder<GRooomsData, GRooomsDataBuilder> {
   }
 }
 
-class _$GRooomsData_rooms extends GRooomsData_rooms {
+class _$GGetRoomsData_rooms extends GGetRoomsData_rooms {
   @override
   final String G__typename;
   @override
@@ -862,52 +869,53 @@ class _$GRooomsData_rooms extends GRooomsData_rooms {
   @override
   final BuiltList<int>? messages;
   @override
-  final _i2.GRoomType roomType;
-  @override
   final String name;
+  @override
+  final _i2.GRoomType roomType;
   @override
   final String? description;
   @override
   final String? imageUrl;
 
-  factory _$GRooomsData_rooms(
-          [void Function(GRooomsData_roomsBuilder)? updates]) =>
-      (new GRooomsData_roomsBuilder()..update(updates)).build();
+  factory _$GGetRoomsData_rooms(
+          [void Function(GGetRoomsData_roomsBuilder)? updates]) =>
+      (new GGetRoomsData_roomsBuilder()..update(updates)).build();
 
-  _$GRooomsData_rooms._(
+  _$GGetRoomsData_rooms._(
       {required this.G__typename,
       required this.id,
       this.messages,
-      required this.roomType,
       required this.name,
+      required this.roomType,
       this.description,
       this.imageUrl})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        G__typename, 'GRooomsData_rooms', 'G__typename');
-    BuiltValueNullFieldError.checkNotNull(id, 'GRooomsData_rooms', 'id');
+        G__typename, 'GGetRoomsData_rooms', 'G__typename');
+    BuiltValueNullFieldError.checkNotNull(id, 'GGetRoomsData_rooms', 'id');
+    BuiltValueNullFieldError.checkNotNull(name, 'GGetRoomsData_rooms', 'name');
     BuiltValueNullFieldError.checkNotNull(
-        roomType, 'GRooomsData_rooms', 'roomType');
-    BuiltValueNullFieldError.checkNotNull(name, 'GRooomsData_rooms', 'name');
+        roomType, 'GGetRoomsData_rooms', 'roomType');
   }
 
   @override
-  GRooomsData_rooms rebuild(void Function(GRooomsData_roomsBuilder) updates) =>
+  GGetRoomsData_rooms rebuild(
+          void Function(GGetRoomsData_roomsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GRooomsData_roomsBuilder toBuilder() =>
-      new GRooomsData_roomsBuilder()..replace(this);
+  GGetRoomsData_roomsBuilder toBuilder() =>
+      new GGetRoomsData_roomsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GRooomsData_rooms &&
+    return other is GGetRoomsData_rooms &&
         G__typename == other.G__typename &&
         id == other.id &&
         messages == other.messages &&
-        roomType == other.roomType &&
         name == other.name &&
+        roomType == other.roomType &&
         description == other.description &&
         imageUrl == other.imageUrl;
   }
@@ -920,29 +928,29 @@ class _$GRooomsData_rooms extends GRooomsData_rooms {
                 $jc(
                     $jc($jc($jc(0, G__typename.hashCode), id.hashCode),
                         messages.hashCode),
-                    roomType.hashCode),
-                name.hashCode),
+                    name.hashCode),
+                roomType.hashCode),
             description.hashCode),
         imageUrl.hashCode));
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('GRooomsData_rooms')
+    return (newBuiltValueToStringHelper('GGetRoomsData_rooms')
           ..add('G__typename', G__typename)
           ..add('id', id)
           ..add('messages', messages)
-          ..add('roomType', roomType)
           ..add('name', name)
+          ..add('roomType', roomType)
           ..add('description', description)
           ..add('imageUrl', imageUrl))
         .toString();
   }
 }
 
-class GRooomsData_roomsBuilder
-    implements Builder<GRooomsData_rooms, GRooomsData_roomsBuilder> {
-  _$GRooomsData_rooms? _$v;
+class GGetRoomsData_roomsBuilder
+    implements Builder<GGetRoomsData_rooms, GGetRoomsData_roomsBuilder> {
+  _$GGetRoomsData_rooms? _$v;
 
   String? _G__typename;
   String? get G__typename => _$this._G__typename;
@@ -956,13 +964,13 @@ class GRooomsData_roomsBuilder
   ListBuilder<int> get messages => _$this._messages ??= new ListBuilder<int>();
   set messages(ListBuilder<int>? messages) => _$this._messages = messages;
 
-  _i2.GRoomType? _roomType;
-  _i2.GRoomType? get roomType => _$this._roomType;
-  set roomType(_i2.GRoomType? roomType) => _$this._roomType = roomType;
-
   String? _name;
   String? get name => _$this._name;
   set name(String? name) => _$this._name = name;
+
+  _i2.GRoomType? _roomType;
+  _i2.GRoomType? get roomType => _$this._roomType;
+  set roomType(_i2.GRoomType? roomType) => _$this._roomType = roomType;
 
   String? _description;
   String? get description => _$this._description;
@@ -972,18 +980,18 @@ class GRooomsData_roomsBuilder
   String? get imageUrl => _$this._imageUrl;
   set imageUrl(String? imageUrl) => _$this._imageUrl = imageUrl;
 
-  GRooomsData_roomsBuilder() {
-    GRooomsData_rooms._initializeBuilder(this);
+  GGetRoomsData_roomsBuilder() {
+    GGetRoomsData_rooms._initializeBuilder(this);
   }
 
-  GRooomsData_roomsBuilder get _$this {
+  GGetRoomsData_roomsBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _G__typename = $v.G__typename;
       _id = $v.id;
       _messages = $v.messages?.toBuilder();
-      _roomType = $v.roomType;
       _name = $v.name;
+      _roomType = $v.roomType;
       _description = $v.description;
       _imageUrl = $v.imageUrl;
       _$v = null;
@@ -992,31 +1000,31 @@ class GRooomsData_roomsBuilder
   }
 
   @override
-  void replace(GRooomsData_rooms other) {
+  void replace(GGetRoomsData_rooms other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$GRooomsData_rooms;
+    _$v = other as _$GGetRoomsData_rooms;
   }
 
   @override
-  void update(void Function(GRooomsData_roomsBuilder)? updates) {
+  void update(void Function(GGetRoomsData_roomsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$GRooomsData_rooms build() {
-    _$GRooomsData_rooms _$result;
+  _$GGetRoomsData_rooms build() {
+    _$GGetRoomsData_rooms _$result;
     try {
       _$result = _$v ??
-          new _$GRooomsData_rooms._(
+          new _$GGetRoomsData_rooms._(
               G__typename: BuiltValueNullFieldError.checkNotNull(
-                  G__typename, 'GRooomsData_rooms', 'G__typename'),
+                  G__typename, 'GGetRoomsData_rooms', 'G__typename'),
               id: BuiltValueNullFieldError.checkNotNull(
-                  id, 'GRooomsData_rooms', 'id'),
+                  id, 'GGetRoomsData_rooms', 'id'),
               messages: _messages?.build(),
-              roomType: BuiltValueNullFieldError.checkNotNull(
-                  roomType, 'GRooomsData_rooms', 'roomType'),
               name: BuiltValueNullFieldError.checkNotNull(
-                  name, 'GRooomsData_rooms', 'name'),
+                  name, 'GGetRoomsData_rooms', 'name'),
+              roomType: BuiltValueNullFieldError.checkNotNull(
+                  roomType, 'GGetRoomsData_rooms', 'roomType'),
               description: description,
               imageUrl: imageUrl);
     } catch (_) {
@@ -1026,7 +1034,7 @@ class GRooomsData_roomsBuilder
         _messages?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'GRooomsData_rooms', _$failedField, e.toString());
+            'GGetRoomsData_rooms', _$failedField, e.toString());
       }
       rethrow;
     }

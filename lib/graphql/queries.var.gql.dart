@@ -24,15 +24,17 @@ abstract class GRoomMessagesVars
       _i1.serializers.deserializeWith(GRoomMessagesVars.serializer, json);
 }
 
-abstract class GRooomsVars implements Built<GRooomsVars, GRooomsVarsBuilder> {
-  GRooomsVars._();
+abstract class GGetRoomsVars
+    implements Built<GGetRoomsVars, GGetRoomsVarsBuilder> {
+  GGetRoomsVars._();
 
-  factory GRooomsVars([Function(GRooomsVarsBuilder b) updates]) = _$GRooomsVars;
+  factory GGetRoomsVars([Function(GGetRoomsVarsBuilder b) updates]) =
+      _$GGetRoomsVars;
 
-  static Serializer<GRooomsVars> get serializer => _$gRooomsVarsSerializer;
+  static Serializer<GGetRoomsVars> get serializer => _$gGetRoomsVarsSerializer;
   Map<String, dynamic> toJson() =>
-      (_i1.serializers.serializeWith(GRooomsVars.serializer, this)
+      (_i1.serializers.serializeWith(GGetRoomsVars.serializer, this)
           as Map<String, dynamic>);
-  static GRooomsVars? fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GRooomsVars.serializer, json);
+  static GGetRoomsVars? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(GGetRoomsVars.serializer, json);
 }

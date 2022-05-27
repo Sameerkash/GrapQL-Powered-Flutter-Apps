@@ -17,15 +17,15 @@ import 'package:graphql_powered_flutter_apps/graphql/mutations.var.gql.dart'
     show GPollMessagesVars, GSendMessageVars;
 import 'package:graphql_powered_flutter_apps/graphql/queries.data.gql.dart'
     show
+        GGetRoomsData,
+        GGetRoomsData_rooms,
         GRoomMessagesData,
         GRoomMessagesData_messages,
-        GRoomMessagesData_messages_from,
-        GRooomsData,
-        GRooomsData_rooms;
+        GRoomMessagesData_messages_from;
 import 'package:graphql_powered_flutter_apps/graphql/queries.req.gql.dart'
-    show GRoomMessagesReq, GRooomsReq;
+    show GGetRoomsReq, GRoomMessagesReq;
 import 'package:graphql_powered_flutter_apps/graphql/queries.var.gql.dart'
-    show GRoomMessagesVars, GRooomsVars;
+    show GGetRoomsVars, GRoomMessagesVars;
 import 'package:graphql_powered_flutter_apps/graphql/schema.schema.gql.dart'
     show GRoomType;
 
@@ -35,6 +35,10 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   ..add(OperationSerializer())
   ..addPlugin(StandardJsonPlugin());
 @SerializersFor([
+  GGetRoomsData,
+  GGetRoomsData_rooms,
+  GGetRoomsReq,
+  GGetRoomsVars,
   GPollMessagesData,
   GPollMessagesData_messageCreated,
   GPollMessagesData_messageCreated_from,
@@ -46,10 +50,6 @@ final SerializersBuilder _serializersBuilder = _$serializers.toBuilder()
   GRoomMessagesReq,
   GRoomMessagesVars,
   GRoomType,
-  GRooomsData,
-  GRooomsData_rooms,
-  GRooomsReq,
-  GRooomsVars,
   GSendMessageData,
   GSendMessageData_createMessage,
   GSendMessageData_createMessage_from,

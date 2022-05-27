@@ -53,37 +53,39 @@ abstract class GRoomMessagesReq
       _i6.serializers.deserializeWith(GRoomMessagesReq.serializer, json);
 }
 
-abstract class GRooomsReq
+abstract class GGetRoomsReq
     implements
-        Built<GRooomsReq, GRooomsReqBuilder>,
-        _i1.OperationRequest<_i2.GRooomsData, _i3.GRooomsVars> {
-  GRooomsReq._();
+        Built<GGetRoomsReq, GGetRoomsReqBuilder>,
+        _i1.OperationRequest<_i2.GGetRoomsData, _i3.GGetRoomsVars> {
+  GGetRoomsReq._();
 
-  factory GRooomsReq([Function(GRooomsReqBuilder b) updates]) = _$GRooomsReq;
+  factory GGetRoomsReq([Function(GGetRoomsReqBuilder b) updates]) =
+      _$GGetRoomsReq;
 
-  static void _initializeBuilder(GRooomsReqBuilder b) => b
-    ..operation = _i4.Operation(document: _i5.document, operationName: 'Roooms')
+  static void _initializeBuilder(GGetRoomsReqBuilder b) => b
+    ..operation =
+        _i4.Operation(document: _i5.document, operationName: 'GetRooms')
     ..executeOnListen = true;
-  _i3.GRooomsVars get vars;
+  _i3.GGetRoomsVars get vars;
   _i4.Operation get operation;
   _i4.Request get execRequest =>
       _i4.Request(operation: operation, variables: vars.toJson());
   String? get requestId;
   @BuiltValueField(serialize: false)
-  _i2.GRooomsData? Function(_i2.GRooomsData?, _i2.GRooomsData?)?
+  _i2.GGetRoomsData? Function(_i2.GGetRoomsData?, _i2.GGetRoomsData?)?
       get updateResult;
-  _i2.GRooomsData? get optimisticResponse;
+  _i2.GGetRoomsData? get optimisticResponse;
   String? get updateCacheHandlerKey;
   Map<String, dynamic>? get updateCacheHandlerContext;
   _i1.FetchPolicy? get fetchPolicy;
   bool get executeOnListen;
   @override
-  _i2.GRooomsData? parseData(Map<String, dynamic> json) =>
-      _i2.GRooomsData.fromJson(json);
-  static Serializer<GRooomsReq> get serializer => _$gRooomsReqSerializer;
+  _i2.GGetRoomsData? parseData(Map<String, dynamic> json) =>
+      _i2.GGetRoomsData.fromJson(json);
+  static Serializer<GGetRoomsReq> get serializer => _$gGetRoomsReqSerializer;
   Map<String, dynamic> toJson() =>
-      (_i6.serializers.serializeWith(GRooomsReq.serializer, this)
+      (_i6.serializers.serializeWith(GGetRoomsReq.serializer, this)
           as Map<String, dynamic>);
-  static GRooomsReq? fromJson(Map<String, dynamic> json) =>
-      _i6.serializers.deserializeWith(GRooomsReq.serializer, json);
+  static GGetRoomsReq? fromJson(Map<String, dynamic> json) =>
+      _i6.serializers.deserializeWith(GGetRoomsReq.serializer, json);
 }

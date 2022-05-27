@@ -8,7 +8,8 @@ part of 'queries.req.gql.dart';
 
 Serializer<GRoomMessagesReq> _$gRoomMessagesReqSerializer =
     new _$GRoomMessagesReqSerializer();
-Serializer<GRooomsReq> _$gRooomsReqSerializer = new _$GRooomsReqSerializer();
+Serializer<GGetRoomsReq> _$gGetRoomsReqSerializer =
+    new _$GGetRoomsReqSerializer();
 
 class _$GRoomMessagesReqSerializer
     implements StructuredSerializer<GRoomMessagesReq> {
@@ -128,19 +129,19 @@ class _$GRoomMessagesReqSerializer
   }
 }
 
-class _$GRooomsReqSerializer implements StructuredSerializer<GRooomsReq> {
+class _$GGetRoomsReqSerializer implements StructuredSerializer<GGetRoomsReq> {
   @override
-  final Iterable<Type> types = const [GRooomsReq, _$GRooomsReq];
+  final Iterable<Type> types = const [GGetRoomsReq, _$GGetRoomsReq];
   @override
-  final String wireName = 'GRooomsReq';
+  final String wireName = 'GGetRoomsReq';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, GRooomsReq object,
+  Iterable<Object?> serialize(Serializers serializers, GGetRoomsReq object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       'vars',
       serializers.serialize(object.vars,
-          specifiedType: const FullType(_i3.GRooomsVars)),
+          specifiedType: const FullType(_i3.GGetRoomsVars)),
       'operation',
       serializers.serialize(object.operation,
           specifiedType: const FullType(_i4.Operation)),
@@ -161,7 +162,7 @@ class _$GRooomsReqSerializer implements StructuredSerializer<GRooomsReq> {
       result
         ..add('optimisticResponse')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(_i2.GRooomsData)));
+            specifiedType: const FullType(_i2.GGetRoomsData)));
     }
     value = object.updateCacheHandlerKey;
     if (value != null) {
@@ -189,9 +190,10 @@ class _$GRooomsReqSerializer implements StructuredSerializer<GRooomsReq> {
   }
 
   @override
-  GRooomsReq deserialize(Serializers serializers, Iterable<Object?> serialized,
+  GGetRoomsReq deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new GRooomsReqBuilder();
+    final result = new GGetRoomsReqBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -201,8 +203,8 @@ class _$GRooomsReqSerializer implements StructuredSerializer<GRooomsReq> {
       switch (key) {
         case 'vars':
           result.vars.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(_i3.GRooomsVars))!
-              as _i3.GRooomsVars);
+                  specifiedType: const FullType(_i3.GGetRoomsVars))!
+              as _i3.GGetRoomsVars);
           break;
         case 'operation':
           result.operation = serializers.deserialize(value,
@@ -214,8 +216,8 @@ class _$GRooomsReqSerializer implements StructuredSerializer<GRooomsReq> {
           break;
         case 'optimisticResponse':
           result.optimisticResponse.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(_i2.GRooomsData))!
-              as _i2.GRooomsData);
+                  specifiedType: const FullType(_i2.GGetRoomsData))!
+              as _i2.GGetRoomsData);
           break;
         case 'updateCacheHandlerKey':
           result.updateCacheHandlerKey = serializers.deserialize(value,
@@ -469,18 +471,18 @@ class GRoomMessagesReqBuilder
   }
 }
 
-class _$GRooomsReq extends GRooomsReq {
+class _$GGetRoomsReq extends GGetRoomsReq {
   @override
-  final _i3.GRooomsVars vars;
+  final _i3.GGetRoomsVars vars;
   @override
   final _i4.Operation operation;
   @override
   final String? requestId;
   @override
-  final _i2.GRooomsData? Function(_i2.GRooomsData?, _i2.GRooomsData?)?
+  final _i2.GGetRoomsData? Function(_i2.GGetRoomsData?, _i2.GGetRoomsData?)?
       updateResult;
   @override
-  final _i2.GRooomsData? optimisticResponse;
+  final _i2.GGetRoomsData? optimisticResponse;
   @override
   final String? updateCacheHandlerKey;
   @override
@@ -490,10 +492,10 @@ class _$GRooomsReq extends GRooomsReq {
   @override
   final bool executeOnListen;
 
-  factory _$GRooomsReq([void Function(GRooomsReqBuilder)? updates]) =>
-      (new GRooomsReqBuilder()..update(updates)).build();
+  factory _$GGetRoomsReq([void Function(GGetRoomsReqBuilder)? updates]) =>
+      (new GGetRoomsReqBuilder()..update(updates)).build();
 
-  _$GRooomsReq._(
+  _$GGetRoomsReq._(
       {required this.vars,
       required this.operation,
       this.requestId,
@@ -504,24 +506,25 @@ class _$GRooomsReq extends GRooomsReq {
       this.fetchPolicy,
       required this.executeOnListen})
       : super._() {
-    BuiltValueNullFieldError.checkNotNull(vars, 'GRooomsReq', 'vars');
-    BuiltValueNullFieldError.checkNotNull(operation, 'GRooomsReq', 'operation');
+    BuiltValueNullFieldError.checkNotNull(vars, 'GGetRoomsReq', 'vars');
     BuiltValueNullFieldError.checkNotNull(
-        executeOnListen, 'GRooomsReq', 'executeOnListen');
+        operation, 'GGetRoomsReq', 'operation');
+    BuiltValueNullFieldError.checkNotNull(
+        executeOnListen, 'GGetRoomsReq', 'executeOnListen');
   }
 
   @override
-  GRooomsReq rebuild(void Function(GRooomsReqBuilder) updates) =>
+  GGetRoomsReq rebuild(void Function(GGetRoomsReqBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GRooomsReqBuilder toBuilder() => new GRooomsReqBuilder()..replace(this);
+  GGetRoomsReqBuilder toBuilder() => new GGetRoomsReqBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     final dynamic _$dynamicOther = other;
-    return other is GRooomsReq &&
+    return other is GGetRoomsReq &&
         vars == other.vars &&
         operation == other.operation &&
         requestId == other.requestId &&
@@ -553,7 +556,7 @@ class _$GRooomsReq extends GRooomsReq {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('GRooomsReq')
+    return (newBuiltValueToStringHelper('GGetRoomsReq')
           ..add('vars', vars)
           ..add('operation', operation)
           ..add('requestId', requestId)
@@ -567,13 +570,14 @@ class _$GRooomsReq extends GRooomsReq {
   }
 }
 
-class GRooomsReqBuilder implements Builder<GRooomsReq, GRooomsReqBuilder> {
-  _$GRooomsReq? _$v;
+class GGetRoomsReqBuilder
+    implements Builder<GGetRoomsReq, GGetRoomsReqBuilder> {
+  _$GGetRoomsReq? _$v;
 
-  _i3.GRooomsVarsBuilder? _vars;
-  _i3.GRooomsVarsBuilder get vars =>
-      _$this._vars ??= new _i3.GRooomsVarsBuilder();
-  set vars(_i3.GRooomsVarsBuilder? vars) => _$this._vars = vars;
+  _i3.GGetRoomsVarsBuilder? _vars;
+  _i3.GGetRoomsVarsBuilder get vars =>
+      _$this._vars ??= new _i3.GGetRoomsVarsBuilder();
+  set vars(_i3.GGetRoomsVarsBuilder? vars) => _$this._vars = vars;
 
   _i4.Operation? _operation;
   _i4.Operation? get operation => _$this._operation;
@@ -583,18 +587,19 @@ class GRooomsReqBuilder implements Builder<GRooomsReq, GRooomsReqBuilder> {
   String? get requestId => _$this._requestId;
   set requestId(String? requestId) => _$this._requestId = requestId;
 
-  _i2.GRooomsData? Function(_i2.GRooomsData?, _i2.GRooomsData?)? _updateResult;
-  _i2.GRooomsData? Function(_i2.GRooomsData?, _i2.GRooomsData?)?
+  _i2.GGetRoomsData? Function(_i2.GGetRoomsData?, _i2.GGetRoomsData?)?
+      _updateResult;
+  _i2.GGetRoomsData? Function(_i2.GGetRoomsData?, _i2.GGetRoomsData?)?
       get updateResult => _$this._updateResult;
   set updateResult(
-          _i2.GRooomsData? Function(_i2.GRooomsData?, _i2.GRooomsData?)?
+          _i2.GGetRoomsData? Function(_i2.GGetRoomsData?, _i2.GGetRoomsData?)?
               updateResult) =>
       _$this._updateResult = updateResult;
 
-  _i2.GRooomsDataBuilder? _optimisticResponse;
-  _i2.GRooomsDataBuilder get optimisticResponse =>
-      _$this._optimisticResponse ??= new _i2.GRooomsDataBuilder();
-  set optimisticResponse(_i2.GRooomsDataBuilder? optimisticResponse) =>
+  _i2.GGetRoomsDataBuilder? _optimisticResponse;
+  _i2.GGetRoomsDataBuilder get optimisticResponse =>
+      _$this._optimisticResponse ??= new _i2.GGetRoomsDataBuilder();
+  set optimisticResponse(_i2.GGetRoomsDataBuilder? optimisticResponse) =>
       _$this._optimisticResponse = optimisticResponse;
 
   String? _updateCacheHandlerKey;
@@ -619,11 +624,11 @@ class GRooomsReqBuilder implements Builder<GRooomsReq, GRooomsReqBuilder> {
   set executeOnListen(bool? executeOnListen) =>
       _$this._executeOnListen = executeOnListen;
 
-  GRooomsReqBuilder() {
-    GRooomsReq._initializeBuilder(this);
+  GGetRoomsReqBuilder() {
+    GGetRoomsReq._initializeBuilder(this);
   }
 
-  GRooomsReqBuilder get _$this {
+  GGetRoomsReqBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _vars = $v.vars.toBuilder();
@@ -641,25 +646,25 @@ class GRooomsReqBuilder implements Builder<GRooomsReq, GRooomsReqBuilder> {
   }
 
   @override
-  void replace(GRooomsReq other) {
+  void replace(GGetRoomsReq other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$GRooomsReq;
+    _$v = other as _$GGetRoomsReq;
   }
 
   @override
-  void update(void Function(GRooomsReqBuilder)? updates) {
+  void update(void Function(GGetRoomsReqBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$GRooomsReq build() {
-    _$GRooomsReq _$result;
+  _$GGetRoomsReq build() {
+    _$GGetRoomsReq _$result;
     try {
       _$result = _$v ??
-          new _$GRooomsReq._(
+          new _$GGetRoomsReq._(
               vars: vars.build(),
               operation: BuiltValueNullFieldError.checkNotNull(
-                  operation, 'GRooomsReq', 'operation'),
+                  operation, 'GGetRoomsReq', 'operation'),
               requestId: requestId,
               updateResult: updateResult,
               optimisticResponse: _optimisticResponse?.build(),
@@ -667,7 +672,7 @@ class GRooomsReqBuilder implements Builder<GRooomsReq, GRooomsReqBuilder> {
               updateCacheHandlerContext: updateCacheHandlerContext,
               fetchPolicy: fetchPolicy,
               executeOnListen: BuiltValueNullFieldError.checkNotNull(
-                  executeOnListen, 'GRooomsReq', 'executeOnListen'));
+                  executeOnListen, 'GGetRoomsReq', 'executeOnListen'));
     } catch (_) {
       late String _$failedField;
       try {
@@ -678,7 +683,7 @@ class GRooomsReqBuilder implements Builder<GRooomsReq, GRooomsReqBuilder> {
         _optimisticResponse?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            'GRooomsReq', _$failedField, e.toString());
+            'GGetRoomsReq', _$failedField, e.toString());
       }
       rethrow;
     }

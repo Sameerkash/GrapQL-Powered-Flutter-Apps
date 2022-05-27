@@ -18,7 +18,7 @@ class MessageView extends StatefulWidget {
 }
 
 class _MessageViewState extends State<MessageView> {
-  final fetchRoomsReq = GRooomsReq();
+  final fetchRoomsReq = GGetRoomsReq();
   @override
   void initState() {
     super.initState();
@@ -48,7 +48,7 @@ class _MessageViewState extends State<MessageView> {
               operationRequest: fetchRoomsReq,
               client: client,
               builder: (context,
-                  OperationResponse<GRooomsData, GRooomsVars>? response,
+                  OperationResponse<GGetRoomsData, GGetRoomsVars>? response,
                   object) {
                 if (response!.loading) {
                   return const Center(child: CircularProgressIndicator());

@@ -64,9 +64,9 @@ const RoomMessages = _i1.OperationDefinitionNode(
                 ]))
           ]))
     ]));
-const Roooms = _i1.OperationDefinitionNode(
+const GetRooms = _i1.OperationDefinitionNode(
     type: _i1.OperationType.query,
-    name: _i1.NameNode(value: 'Roooms'),
+    name: _i1.NameNode(value: 'GetRooms'),
     variableDefinitions: [],
     directives: [],
     selectionSet: _i1.SelectionSetNode(selections: [
@@ -89,13 +89,13 @@ const Roooms = _i1.OperationDefinitionNode(
                 directives: [],
                 selectionSet: null),
             _i1.FieldNode(
-                name: _i1.NameNode(value: 'roomType'),
+                name: _i1.NameNode(value: 'name'),
                 alias: null,
                 arguments: [],
                 directives: [],
                 selectionSet: null),
             _i1.FieldNode(
-                name: _i1.NameNode(value: 'name'),
+                name: _i1.NameNode(value: 'roomType'),
                 alias: null,
                 arguments: [],
                 directives: [],
@@ -114,4 +114,4 @@ const Roooms = _i1.OperationDefinitionNode(
                 selectionSet: null)
           ]))
     ]));
-const document = _i1.DocumentNode(definitions: [RoomMessages, Roooms]);
+const document = _i1.DocumentNode(definitions: [RoomMessages, GetRooms]);

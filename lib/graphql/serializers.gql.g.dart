@@ -7,6 +7,10 @@ part of 'serializers.gql.dart';
 // **************************************************************************
 
 Serializers _$serializers = (new Serializers().toBuilder()
+      ..add(GGetRoomsData.serializer)
+      ..add(GGetRoomsData_rooms.serializer)
+      ..add(GGetRoomsReq.serializer)
+      ..add(GGetRoomsVars.serializer)
       ..add(GPollMessagesData.serializer)
       ..add(GPollMessagesData_messageCreated.serializer)
       ..add(GPollMessagesData_messageCreated_from.serializer)
@@ -18,10 +22,6 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GRoomMessagesReq.serializer)
       ..add(GRoomMessagesVars.serializer)
       ..add(GRoomType.serializer)
-      ..add(GRooomsData.serializer)
-      ..add(GRooomsData_rooms.serializer)
-      ..add(GRooomsReq.serializer)
-      ..add(GRooomsVars.serializer)
       ..add(GSendMessageData.serializer)
       ..add(GSendMessageData_createMessage.serializer)
       ..add(GSendMessageData_createMessage_from.serializer)
@@ -29,11 +29,12 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GSendMessageVars.serializer)
       ..addBuilderFactory(
           const FullType(
+              BuiltList, const [const FullType(GGetRoomsData_rooms)]),
+          () => new ListBuilder<GGetRoomsData_rooms>())
+      ..addBuilderFactory(
+          const FullType(
               BuiltList, const [const FullType(GRoomMessagesData_messages)]),
           () => new ListBuilder<GRoomMessagesData_messages>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(GRooomsData_rooms)]),
-          () => new ListBuilder<GRooomsData_rooms>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(int)]),
           () => new ListBuilder<int>()))

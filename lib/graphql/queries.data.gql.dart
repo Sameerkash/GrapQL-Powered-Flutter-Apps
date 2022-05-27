@@ -83,46 +83,48 @@ abstract class GRoomMessagesData_messages_from
           .deserializeWith(GRoomMessagesData_messages_from.serializer, json);
 }
 
-abstract class GRooomsData implements Built<GRooomsData, GRooomsDataBuilder> {
-  GRooomsData._();
+abstract class GGetRoomsData
+    implements Built<GGetRoomsData, GGetRoomsDataBuilder> {
+  GGetRoomsData._();
 
-  factory GRooomsData([Function(GRooomsDataBuilder b) updates]) = _$GRooomsData;
+  factory GGetRoomsData([Function(GGetRoomsDataBuilder b) updates]) =
+      _$GGetRoomsData;
 
-  static void _initializeBuilder(GRooomsDataBuilder b) =>
+  static void _initializeBuilder(GGetRoomsDataBuilder b) =>
       b..G__typename = 'Query';
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
-  BuiltList<GRooomsData_rooms>? get rooms;
-  static Serializer<GRooomsData> get serializer => _$gRooomsDataSerializer;
+  BuiltList<GGetRoomsData_rooms>? get rooms;
+  static Serializer<GGetRoomsData> get serializer => _$gGetRoomsDataSerializer;
   Map<String, dynamic> toJson() =>
-      (_i1.serializers.serializeWith(GRooomsData.serializer, this)
+      (_i1.serializers.serializeWith(GGetRoomsData.serializer, this)
           as Map<String, dynamic>);
-  static GRooomsData? fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GRooomsData.serializer, json);
+  static GGetRoomsData? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(GGetRoomsData.serializer, json);
 }
 
-abstract class GRooomsData_rooms
-    implements Built<GRooomsData_rooms, GRooomsData_roomsBuilder> {
-  GRooomsData_rooms._();
+abstract class GGetRoomsData_rooms
+    implements Built<GGetRoomsData_rooms, GGetRoomsData_roomsBuilder> {
+  GGetRoomsData_rooms._();
 
-  factory GRooomsData_rooms([Function(GRooomsData_roomsBuilder b) updates]) =
-      _$GRooomsData_rooms;
+  factory GGetRoomsData_rooms(
+      [Function(GGetRoomsData_roomsBuilder b) updates]) = _$GGetRoomsData_rooms;
 
-  static void _initializeBuilder(GRooomsData_roomsBuilder b) =>
+  static void _initializeBuilder(GGetRoomsData_roomsBuilder b) =>
       b..G__typename = 'Room';
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
   String get id;
   BuiltList<int>? get messages;
-  _i2.GRoomType get roomType;
   String get name;
+  _i2.GRoomType get roomType;
   String? get description;
   String? get imageUrl;
-  static Serializer<GRooomsData_rooms> get serializer =>
-      _$gRooomsDataRoomsSerializer;
+  static Serializer<GGetRoomsData_rooms> get serializer =>
+      _$gGetRoomsDataRoomsSerializer;
   Map<String, dynamic> toJson() =>
-      (_i1.serializers.serializeWith(GRooomsData_rooms.serializer, this)
+      (_i1.serializers.serializeWith(GGetRoomsData_rooms.serializer, this)
           as Map<String, dynamic>);
-  static GRooomsData_rooms? fromJson(Map<String, dynamic> json) =>
-      _i1.serializers.deserializeWith(GRooomsData_rooms.serializer, json);
+  static GGetRoomsData_rooms? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(GGetRoomsData_rooms.serializer, json);
 }

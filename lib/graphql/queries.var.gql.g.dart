@@ -8,7 +8,8 @@ part of 'queries.var.gql.dart';
 
 Serializer<GRoomMessagesVars> _$gRoomMessagesVarsSerializer =
     new _$GRoomMessagesVarsSerializer();
-Serializer<GRooomsVars> _$gRooomsVarsSerializer = new _$GRooomsVarsSerializer();
+Serializer<GGetRoomsVars> _$gGetRoomsVarsSerializer =
+    new _$GGetRoomsVarsSerializer();
 
 class _$GRoomMessagesVarsSerializer
     implements StructuredSerializer<GRoomMessagesVars> {
@@ -51,22 +52,23 @@ class _$GRoomMessagesVarsSerializer
   }
 }
 
-class _$GRooomsVarsSerializer implements StructuredSerializer<GRooomsVars> {
+class _$GGetRoomsVarsSerializer implements StructuredSerializer<GGetRoomsVars> {
   @override
-  final Iterable<Type> types = const [GRooomsVars, _$GRooomsVars];
+  final Iterable<Type> types = const [GGetRoomsVars, _$GGetRoomsVars];
   @override
-  final String wireName = 'GRooomsVars';
+  final String wireName = 'GGetRoomsVars';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, GRooomsVars object,
+  Iterable<Object?> serialize(Serializers serializers, GGetRoomsVars object,
       {FullType specifiedType = FullType.unspecified}) {
     return <Object?>[];
   }
 
   @override
-  GRooomsVars deserialize(Serializers serializers, Iterable<Object?> serialized,
+  GGetRoomsVars deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    return new GRooomsVarsBuilder().build();
+    return new GGetRoomsVarsBuilder().build();
   }
 }
 
@@ -151,55 +153,56 @@ class GRoomMessagesVarsBuilder
   }
 }
 
-class _$GRooomsVars extends GRooomsVars {
-  factory _$GRooomsVars([void Function(GRooomsVarsBuilder)? updates]) =>
-      (new GRooomsVarsBuilder()..update(updates)).build();
+class _$GGetRoomsVars extends GGetRoomsVars {
+  factory _$GGetRoomsVars([void Function(GGetRoomsVarsBuilder)? updates]) =>
+      (new GGetRoomsVarsBuilder()..update(updates)).build();
 
-  _$GRooomsVars._() : super._();
+  _$GGetRoomsVars._() : super._();
 
   @override
-  GRooomsVars rebuild(void Function(GRooomsVarsBuilder) updates) =>
+  GGetRoomsVars rebuild(void Function(GGetRoomsVarsBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GRooomsVarsBuilder toBuilder() => new GRooomsVarsBuilder()..replace(this);
+  GGetRoomsVarsBuilder toBuilder() => new GGetRoomsVarsBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GRooomsVars;
+    return other is GGetRoomsVars;
   }
 
   @override
   int get hashCode {
-    return 129595628;
+    return 429582731;
   }
 
   @override
   String toString() {
-    return newBuiltValueToStringHelper('GRooomsVars').toString();
+    return newBuiltValueToStringHelper('GGetRoomsVars').toString();
   }
 }
 
-class GRooomsVarsBuilder implements Builder<GRooomsVars, GRooomsVarsBuilder> {
-  _$GRooomsVars? _$v;
+class GGetRoomsVarsBuilder
+    implements Builder<GGetRoomsVars, GGetRoomsVarsBuilder> {
+  _$GGetRoomsVars? _$v;
 
-  GRooomsVarsBuilder();
+  GGetRoomsVarsBuilder();
 
   @override
-  void replace(GRooomsVars other) {
+  void replace(GGetRoomsVars other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$GRooomsVars;
+    _$v = other as _$GGetRoomsVars;
   }
 
   @override
-  void update(void Function(GRooomsVarsBuilder)? updates) {
+  void update(void Function(GGetRoomsVarsBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$GRooomsVars build() {
-    final _$result = _$v ?? new _$GRooomsVars._();
+  _$GGetRoomsVars build() {
+    final _$result = _$v ?? new _$GGetRoomsVars._();
     replace(_$result);
     return _$result;
   }

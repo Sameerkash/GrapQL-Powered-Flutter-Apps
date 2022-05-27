@@ -17,5 +17,6 @@ query GetRooms {
     name
     roomType
     description
+    imageUrl
   }
 }
